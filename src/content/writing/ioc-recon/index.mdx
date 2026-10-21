@@ -1,0 +1,25 @@
+---
+title: Rapidly Triage Indicators with IOC Recon
+date: 2026-07-06
+description: A Chrome extension that searches every relevant threat-intel source for an indicator with a single right-click.
+---
+
+<YouTube id="zOrRusVfB2k" title="IOC Recon demo" />
+
+Install it here: [IOC Recon - Context Menu Search](https://chromewebstore.google.com/detail/ioc-recon-context-menu-se/johmbbkcjenldjjnbegfgdhkklmhffcl)
+
+I conduct a lot of investigations in my day job, and I often find myself copying the same indicator into five or more different tabs just to get some context on it. I built IOC Recon as a way to do all of that enrichment with a single right-click.
+
+## Features
+
+- Right-click any selection to search every matching source at once, or fire "Search all matching sources" to open them in background tabs.
+- Smart indicator detection for IPv4, IPv6, domains, URLs, emails, MD5, SHA1, SHA256, etc.
+- Automatic refang of defanged indicators, plus copy-refanged and copy-defanged actions from the menu.
+- Configurable sources built from a URL template and a `%s` placeholder, GET or POST, with optional URL or Base64 encoding.
+- Per-source regex rules: a match pattern that controls when a source appears, and transforms that rewrite the selection first (for example, a MITRE sub-technique like T1543.003 into the T1543/003 path ATT&CK expects).
+- Group sources into categories, reorder them, and open results in the background.
+- Import and export configurations as JSON, or sync a shared, version-controlled source list across your team from a remote URL.
+
+## Install
+
+IOC Recon is available on the [Chrome Web Store](https://chromewebstore.google.com/detail/ioc-recon-context-menu-se/johmbbkcjenldjjnbegfgdhkklmhffcl) and the source is on [GitHub](https://github.com/exfiltrace-labs/ioc-recon) if you'd like to build it yourself or contribute.

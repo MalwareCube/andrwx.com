@@ -1,0 +1,29 @@
+---
+// Click-to-enlarge for Figure images, which are wrapped in <a class="lightbox">
+// at build time. Without JS, the links still open the full-size image.
+---
+
+<dialog class="lightbox-dialog" aria-label="Enlarged image">
+  <button type="button" class="lightbox-close" aria-label="Close">×</button>
+  <img alt="" />
+</dialog>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('.lightbox-dialog');
+  const full = dialog?.querySelector('img');
+
+  if (dialog && full) {
+    document.addEventListener('click', (event) => {
+      const link = (event.target as Element).closest<HTMLAnchorElement>('a.lightbox');
+      if (!link) return;
+      event.preventDefault();
+      full.src = link.href;
+      full.alt = link.querySelector('img')?.alt ?? '';
+      dialog.showModal();
+    });
+
+    // Any click inside the open dialog (image, backdrop, or button) closes it.
+    dialog.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('close', () => full.removeAttribute('src'));
+  }
+</script>
