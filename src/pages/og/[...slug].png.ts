@@ -9,7 +9,7 @@ export const getStaticPaths = (async () => {
     {
       params: { slug: 'default' },
       props: {
-        title: 'Andrew Prince',
+        title: 'Andrew Bergin',
         description: 'Digital forensics, incident response, and security.',
       },
     },
